@@ -19,4 +19,13 @@
     <string name="btnPercent">%</string>
     <string name="butDot">.</string>
     <string name="butEquals">eq</string>
+    <string name="butBracketOpen">(</string>
+    <string name="butBracketClose">)</string>
+    <string name ="butFactorial">!x</string>
+    <string name="butRoot">√</string>
+    <string name="butPower">x^y</string>
+    <string name="butSin">sinx</string>
+    <string name="butCos">cosx</string>
+    <string name="butTg">tgx</string>
+    <string name="butChangeMode">Change Mode</string>
 </resources>

@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TextView outputText;
     Button butC,butPlus,butMinus,butPercent,butMult,butSplit,butEqual,butPlusMinus;
+    View root,rootE;
     double tempDigit;
     final String PLUS="plus";
     final String MINUS="minus";
@@ -26,6 +29,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void init(){
+        root=findViewById(R.id.root);
+        rootE=findViewById(R.id.rootE);
+
+        Button butChange=findViewById(R.id.butChange);
+        butChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(root.getVisibility()==View.VISIBLE){
+                    root.setVisibility(View.GONE);
+                    rootE.setVisibility(View.VISIBLE);
+                }else{
+                    root.setVisibility(View.VISIBLE);
+                    rootE.setVisibility(View.GONE);
+                }
+            }
+        });
         outputText=findViewById(R.id.outputView);
         butC=findViewById(R.id.butC);
         butPlus=findViewById(R.id.butPlus);
