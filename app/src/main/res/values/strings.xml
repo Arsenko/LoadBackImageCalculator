@@ -28,4 +28,6 @@
     <string name="butCos">cosx</string>
     <string name="butTg">tgx</string>
     <string name="butChangeMode">Change Mode</string>
+    <string name="settings">settings</string>
+    <string name="OK">OK</string>
 </resources>

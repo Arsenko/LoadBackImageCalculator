@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -27,8 +28,16 @@
             android:text="@string/butChangeMode" />
     </LinearLayout>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent" android:layout_height="match_parent">
+    <Button
+        android:id="@+id/butSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
         <RelativeLayout
             android:id="@+id/root"
             android:layout_width="wrap_content"
@@ -257,26 +266,26 @@
                 android:id="@+id/butBracketClose"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/butBracketOpen"
                 android:layout_margin="3dp"
+                android:layout_toEndOf="@id/butBracketOpen"
                 android:text="@string/butBracketClose" />
 
             <Button
                 android:id="@+id/butPower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/butBracketClose"
                 android:layout_margin="3dp"
-                android:text="@string/butPower"/>
+                android:layout_toEndOf="@id/butBracketClose"
+                android:text="@string/butPower" />
 
             <Button
                 android:id="@+id/butRoot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/butPower"
                 android:layout_alignParentRight="true"
                 android:layout_margin="3dp"
-                android:text="@string/butRoot"/>
+                android:layout_toEndOf="@id/butPower"
+                android:text="@string/butRoot" />
 
             <Button
                 android:id="@+id/butCos"
@@ -284,42 +293,42 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/butBracketOpen"
                 android:layout_margin="3dp"
-                android:text="@string/butCos"/>
+                android:text="@string/butCos" />
 
             <Button
                 android:id="@+id/butSin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/butCos"
                 android:layout_below="@id/butBracketOpen"
                 android:layout_margin="3dp"
-                android:text="@string/butSin"/>
+                android:layout_toEndOf="@id/butCos"
+                android:text="@string/butSin" />
 
             <Button
                 android:id="@+id/butTg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/butSin"
                 android:layout_below="@id/butBracketOpen"
                 android:layout_margin="3dp"
-                android:text="@string/butTg"/>
+                android:layout_toEndOf="@id/butSin"
+                android:text="@string/butTg" />
 
             <Button
                 android:id="@+id/butFactorial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/butTg"
                 android:layout_below="@id/butBracketOpen"
                 android:layout_alignParentRight="true"
                 android:layout_margin="3dp"
-                android:text="@string/butFactorial"/>
+                android:layout_toEndOf="@id/butTg"
+                android:text="@string/butFactorial" />
 
             <Button
                 android:id="@+id/butCE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_below="@id/butFactorial"
+                android:layout_alignParentLeft="true"
                 android:layout_margin="3dp"
                 android:text="@string/butC" />
 
@@ -327,9 +336,9 @@
                 android:id="@+id/butPlusMinusE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/butFactorial"
                 android:layout_margin="3dp"
                 android:layout_toEndOf="@id/butCE"
-                android:layout_below="@id/butFactorial"
                 android:onClick="btnPress"
                 android:text="@string/butPlusMinus" />
 
@@ -337,8 +346,8 @@
                 android:id="@+id/butPercentE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="3dp"
                 android:layout_below="@id/butFactorial"
+                android:layout_margin="3dp"
                 android:layout_toEndOf="@id/butPlusMinusE"
                 android:text="@string/btnPercent" />
 
@@ -346,8 +355,8 @@
                 android:id="@+id/butSplitE"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
                 android:layout_below="@id/butFactorial"
+                android:layout_alignParentRight="true"
                 android:layout_marginStart="3dp"
                 android:layout_marginTop="3dp"
                 android:layout_marginEnd="3dp"
@@ -521,6 +530,13 @@
                 android:text="=" />
 
         </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_launcher_background" />
 
     </FrameLayout>
 

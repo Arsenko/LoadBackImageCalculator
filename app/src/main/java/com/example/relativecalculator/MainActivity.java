@@ -2,6 +2,7 @@ package com.example.relativecalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -45,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        Button butSettings=findViewById(R.id.butSettings);
+        butSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toSettings=new Intent(MainActivity.this,SettingsActivity.class);
+                startActivity(toSettings);
+            }
+        });
+
         outputText=findViewById(R.id.outputView);
         butC=findViewById(R.id.butC);
         butPlus=findViewById(R.id.butPlus);
