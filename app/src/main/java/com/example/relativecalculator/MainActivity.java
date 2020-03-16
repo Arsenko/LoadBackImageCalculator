@@ -1,29 +1,27 @@
 package com.example.relativecalculator;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 public class MainActivity extends AppCompatActivity {
     TextView outputText;
-    Button butC,butPlus,butMinus,butPercent,butMult,butSplit,butEqual,butPlusMinus;
-    View root,rootE;
+    Button butC, butPlus, butMinus, butPercent, butMult, butSplit, butEqual, butPlusMinus;
+    View root, rootE;
     double tempDigit;
-    final String PLUS="plus";
-    final String MINUS="minus";
-    final String PERCENT="percent";
-    final String MULTIPLEX="multiplex";
-    final String SPLIT="split";
-    String optionSelected="";
+    final String PLUS = "plus";
+    final String MINUS = "minus";
+    final String PERCENT = "percent";
+    final String MULTIPLEX = "multiplex";
+    final String SPLIT = "split";
+    String optionSelected = "";
     private static final int SETTINGS_REQUEST_CODE = 321;
     private View mainRoot;
 
@@ -41,117 +39,117 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == SETTINGS_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             Drawable background = Drawable.createFromPath(SettingsActivity.getImagePathFromIntent(data));
 
-            mainRoot=findViewById(R.id.background);
+            mainRoot = findViewById(R.id.background);
             mainRoot.setBackground(background);
         }
     }
 
-    public void init(){
-        root=findViewById(R.id.root);
-        rootE=findViewById(R.id.rootE);
+    public void init() {
+        root = findViewById(R.id.root);
+        rootE = findViewById(R.id.rootE);
 
-        Button butChange=findViewById(R.id.butChange);
+        Button butChange = findViewById(R.id.butChange);
         butChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(root.getVisibility()==View.VISIBLE){
+                if (root.getVisibility() == View.VISIBLE) {
                     root.setVisibility(View.GONE);
                     rootE.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     root.setVisibility(View.VISIBLE);
                     rootE.setVisibility(View.GONE);
                 }
             }
         });
 
-        Button butSettings=findViewById(R.id.butSettings);
+        Button butSettings = findViewById(R.id.butSettings);
         butSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toSettings=new Intent(MainActivity.this,SettingsActivity.class);
+                Intent toSettings = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(toSettings);
             }
         });
 
-        outputText=findViewById(R.id.outputView);
-        butC=findViewById(R.id.butC);
-        butPlus=findViewById(R.id.butPlus);
-        butMinus=findViewById(R.id.butMinus);
-        butMult=findViewById(R.id.butMultiplex);
-        butSplit=findViewById(R.id.butSplit);
-        butEqual=findViewById(R.id.butEqual);
-        butPercent=findViewById(R.id.butPercent);
-        butPlusMinus=findViewById(R.id.butPlusMinus);
+        outputText = findViewById(R.id.outputView);
+        butC = findViewById(R.id.butC);
+        butPlus = findViewById(R.id.butPlus);
+        butMinus = findViewById(R.id.butMinus);
+        butMult = findViewById(R.id.butMultiplex);
+        butSplit = findViewById(R.id.butSplit);
+        butEqual = findViewById(R.id.butEqual);
+        butPercent = findViewById(R.id.butPercent);
+        butPlusMinus = findViewById(R.id.butPlusMinus);
 
         butPlusMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 outputText.setText(String.valueOf((
-                        -1*Double.valueOf(outputText.getText().toString()))));
+                        -1 * Double.valueOf(outputText.getText().toString()))));
             }
         });
 
         butPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tempDigit=Double.valueOf(outputText.getText().toString());
+                tempDigit = Double.valueOf(outputText.getText().toString());
                 outputText.setText("");
-                optionSelected=PLUS;
+                optionSelected = PLUS;
             }
         });
 
         butMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tempDigit=Double.valueOf(outputText.getText().toString());
+                tempDigit = Double.valueOf(outputText.getText().toString());
                 outputText.setText("");
-                optionSelected=MINUS;
+                optionSelected = MINUS;
             }
         });
 
         butPercent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tempDigit=Double.valueOf(outputText.getText().toString());
+                tempDigit = Double.valueOf(outputText.getText().toString());
                 outputText.setText("");
-                optionSelected=PERCENT;
+                optionSelected = PERCENT;
             }
         });
 
         butMult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tempDigit=Double.valueOf(outputText.getText().toString());
+                tempDigit = Double.valueOf(outputText.getText().toString());
                 outputText.setText("");
-                optionSelected=MULTIPLEX;
+                optionSelected = MULTIPLEX;
             }
         });
 
         butSplit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tempDigit=Double.valueOf(outputText.getText().toString());
+                tempDigit = Double.valueOf(outputText.getText().toString());
                 outputText.setText("");
-                optionSelected=SPLIT;
+                optionSelected = SPLIT;
             }
         });
 
         butEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!optionSelected.equals("")) {
+                if (!optionSelected.equals("")) {
                     double secondDigit = Double.valueOf(outputText.getText().toString());
                     switch (optionSelected) {
                         case PLUS: {
-                            outputText.setText(String.valueOf(tempDigit +secondDigit));
+                            outputText.setText(String.valueOf(tempDigit + secondDigit));
                             break;
                         }
                         case MINUS: {
-                            outputText.setText(String.valueOf(tempDigit -secondDigit));
+                            outputText.setText(String.valueOf(tempDigit - secondDigit));
                             break;
                         }
                         case PERCENT: {
-                            outputText.setText(String.valueOf(tempDigit / 100 *secondDigit));
+                            outputText.setText(String.valueOf(tempDigit / 100 * secondDigit));
                             break;
                         }
                         case MULTIPLEX: {
@@ -159,10 +157,10 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         }
                         case SPLIT: {
-                            if(secondDigit==0){
+                            if (secondDigit == 0) {
                                 Toast.makeText(MainActivity.this,
-                                        "Error, zero split unposible",Toast.LENGTH_LONG).show();
-                            }else {
+                                        "Error, zero split unposible", Toast.LENGTH_LONG).show();
+                            } else {
                                 outputText.setText(String.valueOf(tempDigit / secondDigit));
                             }
                             break;
@@ -174,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
         butC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                optionSelected="";
+                optionSelected = "";
                 outputText.setText("");
             }
         });

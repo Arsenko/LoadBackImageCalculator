@@ -3,25 +3,22 @@ package com.example.relativecalculator;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import java.io.File;
 
 public class SettingsActivity extends AppCompatActivity {
     private EditText text;
-    final static private String TARGET_FOLDER="Download/";
-    final static private int REQUEST=323;
+    final static private String TARGET_FOLDER = "Download/";
+    final static private int REQUEST = 323;
     private static final String IMAGE_PATH_KEY = "IMAGE_PATH_KEY";
 
     @Override
@@ -35,9 +32,9 @@ public class SettingsActivity extends AppCompatActivity {
         return intent.getStringExtra(IMAGE_PATH_KEY);
     }
 
-    private void init(){
-        text=findViewById(R.id.editText);
-        Button butOK=findViewById(R.id.butOK);
+    private void init() {
+        text = findViewById(R.id.editText);
+        Button butOK = findViewById(R.id.butOK);
         butOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
