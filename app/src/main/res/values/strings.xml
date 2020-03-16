@@ -30,4 +30,6 @@
     <string name="butChangeMode">Change Mode</string>
     <string name="settings">settings</string>
     <string name="OK">OK</string>
+    <string name="fileNotFound">Изображение не найдено</string>
+    <string name="permissionDenied">Отсутствуют привеленгии (чтение из файла)</string>
 </resources>

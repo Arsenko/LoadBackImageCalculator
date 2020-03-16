@@ -1,8 +1,10 @@
 package com.example.relativecalculator;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,11 +24,26 @@ public class MainActivity extends AppCompatActivity {
     final String MULTIPLEX="multiplex";
     final String SPLIT="split";
     String optionSelected="";
+    private static final int SETTINGS_REQUEST_CODE = 321;
+    private View mainRoot;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == SETTINGS_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            Drawable background = Drawable.createFromPath(SettingsActivity.getImagePathFromIntent(data));
+
+            mainRoot=findViewById(R.id.background);
+            mainRoot.setBackground(background);
+        }
     }
 
     public void init(){
