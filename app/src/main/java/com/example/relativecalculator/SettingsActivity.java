@@ -9,16 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import java.io.File;
 
 public class SettingsActivity extends AppCompatActivity {
     private EditText text;
-    final static private String TARGET_FOLDER = "Download/";
-    final static private int REQUEST = 323;
+    private static final int REQUEST = 323;
     private static final String IMAGE_PATH_KEY = "IMAGE_PATH_KEY";
 
     @Override
@@ -40,7 +37,9 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (ActivityCompat.checkSelfPermission(SettingsActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(SettingsActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST);
-                    return;
+                    if(ActivityCompat.checkSelfPermission(SettingsActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                        setImage();
+                    }
                 }
 
                 setImage();

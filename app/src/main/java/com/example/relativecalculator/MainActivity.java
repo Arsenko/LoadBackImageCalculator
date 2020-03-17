@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     final String MULTIPLEX = "multiplex";
     final String SPLIT = "split";
     String optionSelected = "";
-    private static final int SETTINGS_REQUEST_CODE = 321;
+    private static final int SETTINGS_REQUEST_CODE = 323;
     private View mainRoot;
 
     @Override
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == SETTINGS_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             Drawable background = Drawable.createFromPath(SettingsActivity.getImagePathFromIntent(data));
 
-            mainRoot = findViewById(R.id.background);
+            mainRoot = findViewById(R.id.inputButtons);
             mainRoot.setBackground(background);
         }
     }
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent toSettings = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(toSettings);
+                startActivityForResult(toSettings,SETTINGS_REQUEST_CODE);
             }
         });
 
